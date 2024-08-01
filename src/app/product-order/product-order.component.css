@@ -1,0 +1,39 @@
+table {
+  width: 100%;
+  margin: 20px auto;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background-color: #f4f4f4;
+}
+
+button {
+  padding: 5px 10px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: white;
+  color: green;
+}
+
+.btn {
+  color: white;
+  background-color: #3c6892;
+}
+
+.btn:hover {
+  background-color: #3c6892;
+}
+
+button:hover {
+  background-color: #f0f0f0;
+}

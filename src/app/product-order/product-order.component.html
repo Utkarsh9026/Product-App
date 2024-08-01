@@ -1,0 +1,34 @@
+<form [formGroup]="productForm">
+  <table>
+    <thead>
+      <tr>
+        <th>Product Name</th>
+        <th>Quantity</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody formArrayName="orders">
+      <tr *ngFor="let order of orders.controls; let i = index" [formGroupName]="i">
+        <td>
+          <select formControlName="productName">
+            <option value="">Choose Product</option>
+            <option *ngFor="let product of products" [value]="product">{{ product }}</option>
+          </select>
+        </td>
+        <td>
+          <select formControlName="quantity">
+            <option value="">Choose Quantity</option>
+            <option *ngFor="let qty of [1, 2, 3, 4, 5]" [value]="qty">{{ qty }}</option>
+          </select>
+        </td>
+        <td>
+          <button type="button" (click)="addOrder()" *ngIf="i === orders.length - 1 && i < 7">ADD</button>
+          <button style="margin-left: 5px;" type="button" (click)="removeOrder(i)" *ngIf="i > 0">REMOVE</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</form>
+<button class="btn" (click)="showOrder()">Show Order</button>
+<app-product-order-list *ngIf="showOrders" [orders]="productForm.value.orders"></app-product-order-list>
+<button class="btn" *ngIf="showOrders" (click)="readOrder()">What is my Order?</button>
